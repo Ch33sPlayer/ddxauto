@@ -22,7 +22,21 @@ test.describe ("Api - тест на получение списка клубов
 
 
 test("[negative] получить список клубов",async ({ request }) => {
-// Здесь будет мой прекарсный код, который как раз и проверит
+    const response = await request.get(
+        `${api.urls.base_url_api}${api.paths.clubs}`,
+        {
+            headers : {
+                'Authorization': `${api.tokens.test}`
+            },
+            params :{
+                //request_id:"2",
+                //request_source:"crm"
+            }
+        }
+    );
+    
+    expect(response.status()).toEqual(400);
+});
+});
+    
 
-});
-});
